@@ -1,0 +1,42 @@
+#include <stdio.h>
+//moving avg in array
+int moving_arr(int arr[],int w,int n)
+{
+    int newarr[n];
+    for(int i = 0;i<n;i++)
+    {
+        newarr[i] = arr[i];
+    }
+     for(int i = 0;i<w;i++)
+       {
+           int sum = 0,avg=0;
+           for(int j = 0;j<=i;j++)
+           {
+               sum+=newarr[j];
+               avg=sum/w;
+           }
+           arr[i] = avg;
+       }
+    for(int i = w;i<n;i++)
+    {
+        int sum = 0,avg=0;
+        for(int j =i;j>i-w;j--)
+        {
+            sum+=newarr[j];
+            avg=sum/w;
+        }
+        arr[i] = avg;
+    }
+}
+int main() {
+    
+    int arr[7] = {10,20,10,30,40,35,50};
+    moving_arr(arr,2,7);
+    for(int i =0;i<7;i++)
+    {
+        printf("%d\n",arr[i]);
+    }
+    
+
+    return 0;
+}
