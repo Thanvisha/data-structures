@@ -1,0 +1,163 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node*next;
+};
+//traverse and printing data of each node
+int main(){
+struct node*head=0;
+struct node*nnode,*temp;
+int choice;
+while(choice=1){
+nnode=(struct node*)malloc(sizeof(struct node));
+printf("enter the data");
+scanf("%d",&nnode->data);
+nnode->next=0;
+if(head==0){
+    head=temp=nnode;
+}
+else{
+    temp->next=nnode;
+    temp=nnode;
+}
+printf("do u want to continue yes or no");
+scanf("%d",&choice);
+}
+temp=head;
+while(temp!=0){
+    printf("%d",temp->data);
+    temp=temp->next;
+}
+}
+//insert a node at beginning
+int main(){
+    struct node*head=0;
+    struct node*nnode,*temp;
+    int choice;
+    while(choice=1){
+    nnode=(struct node*)malloc(sizeof(struct node));
+    printf("enter the data");
+    scanf("%d",&nnode->data);
+    nnode->next=0;
+    if(head==0){
+        head=temp=nnode;
+    }
+    else{
+        temp->next=nnode;
+        temp=nnode;
+    }
+    printf("do u want to continue yes or no");
+    scanf("%d",&choice);
+    }
+
+    temp=head;
+    while(temp!=0){
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+    
+    printf("enter the data u want to insert:");
+    scanf("%d",&nnode->data);
+    nnode->next=head;
+    head=nnode;
+
+    temp=head;
+    while(temp!=0){
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+    
+}
+//insertion at the end
+int main(){
+struct node*head=0;
+struct node*nnode,*temp;
+int choice;
+while(choice=1){
+nnode=(struct node*)malloc(sizeof(struct node));
+printf("enter the data");
+scanf("%d",&nnode->data);
+nnode->next=0;
+if(head==0){
+    head=temp=nnode;
+}
+else{
+    temp->next=nnode;
+    temp=nnode;
+}
+printf("do u want to continue yes or no");
+scanf("%d",&choice);
+}
+temp=head;
+while(temp!=0){
+    printf("%d",temp->data);
+    temp=temp->next;
+}
+printf("enter the data u want to insert:");
+scanf("%d",&nnode->data);
+nnode->next=0;
+temp=head;
+while(temp->next!=0){
+    temp=temp->next;
+}
+temp->next=nnode;
+nnode->next=0;
+temp=head;
+while(temp!=0){
+    printf("%d",temp->data);
+    temp=temp->next;
+}
+}
+//inserting at a specific position
+int main(){
+    struct node*head=0;
+    struct node*nnode,*temp;
+    int choice;
+    while(choice=1){
+    nnode=(struct node*)malloc(sizeof(struct node));
+    printf("enter the data");
+    scanf("%d",&nnode->data);
+    nnode->next=0;
+    if(head==0){
+        head=temp=nnode;
+    }
+    else{
+        temp->next=nnode;
+        temp=nnode;
+    }
+    printf("do u want to continue yes or no");
+    scanf("%d",&choice);
+    }
+    temp=head;
+    while(temp!=0){
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+    int i,pos,count;
+    printf("enter the position of insertion");
+    scanf("%d",&pos);
+    if(pos>count){
+        printf("invalid position");
+    }
+    else{
+        temp=head;
+        while(i<pos){
+        temp=temp->next;
+        i++;
+        }
+        printf("enter the data u want to insert:");
+        scanf("%d",&nnode->data);
+        nnode->next=temp->next;
+        temp->next=nnode;
+        temp=head;
+     while(temp!=0){
+        printf("%d",temp->data);
+        temp=temp->next;
+     }
+
+    }
+
+}
+
+
