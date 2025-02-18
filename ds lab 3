@@ -159,5 +159,121 @@ int main(){
     }
 
 }
+//deletion of node at beginning
+int main(){
+    struct node*head=0;
+    struct node*nnode,*temp;
+    int choice;
+    while(choice=1){
+    nnode=(struct node*)malloc(sizeof(struct node));
+    printf("enter the data");
+    scanf("%d",&nnode->data);
+    nnode->next=0;
+    if(head==0){
+        head=temp=nnode;
+    }
+    else{
+        temp->next=nnode;
+        temp=nnode;
+    }
+    printf("do u want to continue yes or no");
+    scanf("%d",&choice);
+    }
+    temp=head;
+    while(temp!=0){
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+
+    temp=head;
+    head=head->next;
+    free(temp);
+    while(temp!=0){
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+}
+//deletion of node at end
+int main(){
+    struct node*head=0;
+    struct node*nnode,*temp;
+    int choice;
+    while(choice=1){
+    nnode=(struct node*)malloc(sizeof(struct node));
+    printf("enter the data");
+    scanf("%d",&nnode->data);
+    nnode->next=0;
+    if(head==0){
+        head=temp=nnode;
+    }
+    else{
+        temp->next=nnode;
+        temp=nnode;
+    }
+    printf("do u want to continue yes or no");
+    scanf("%d",&choice);
+    }
+    temp=head;
+    while(temp!=0){
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+    struct node*prev;
+    temp=head;
+    while(temp->next!=0){
+        prev=temp;
+        temp=temp->next;
+    }
+    prev->next=0;
+    free(temp);
+    while(temp!=0){
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+    }
+//deletion of node at a specific position
+int main(){
+    struct node*head=0;
+    struct node*nnode,*temp;
+    int choice;
+    while(choice=1){
+    nnode=(struct node*)malloc(sizeof(struct node));
+    printf("enter the data");
+    scanf("%d",&nnode->data);
+    nnode->next=0;
+    if(head==0){
+        head=temp=nnode;
+    }
+    else{
+        temp->next=nnode;
+        temp=nnode;
+    }
+    printf("do u want to continue yes or no");
+    scanf("%d",&choice);
+    }
+    temp=head;
+    while(temp!=0){
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+    int m,i=1;
+    printf("enter the position to delete m:");
+    scanf("%d",&m);
+    struct node*prev;
+    temp=head=prev;
+    while(i<m){
+        prev=temp;
+        temp=temp->next;
+        i++;
+    }
+    prev->next=temp->next;
+    free(temp);
+}
+
+
+            
+
+
+
 
 
