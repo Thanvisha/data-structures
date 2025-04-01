@@ -1,0 +1,233 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct dnode{
+    int data;
+    struct dnode*next;
+    struct dnode *prev;
+    
+};
+//traversing and printing a doubly linked list 
+int main(){
+struct dnode*head;
+struct dnode*nnode,*temp;
+head=0;
+int choice;
+while(choice=1){
+nnode=(struct dnode*)malloc(sizeof(struct dnode));
+printf("enter the data");
+scanf("%d",&nnode->data);
+nnode->next=0;
+nnode->prev=0;
+if(head==0){
+    head=temp=nnode;
+}
+else{
+    temp->next=nnode;
+    nnode->prev=temp;
+    temp=nnode;
+}
+printf("do u want to continue yes or no");
+scanf("%d",&choice);
+}
+temp=head;
+while(temp!=0){
+    printf("%d",temp->data);
+    temp=temp->next;
+}
+}
+//insertion in dll
+//at beginning
+int main(){
+    struct dnode*head;
+    struct dnode*nnode,*temp;
+    head=0;
+    int choice;
+    while(choice=1){
+    nnode=(struct dnode*)malloc(sizeof(struct dnode));
+    printf("enter the data");
+    scanf("%d",&nnode->data);
+    nnode->next=0;
+    nnode->prev=0;
+    if(head==0){
+        head=temp=nnode;
+    }
+    else{
+        temp->next=nnode;
+        nnode->prev=temp;
+        temp=nnode;
+    }
+    printf("do u want to continue yes or no");
+    scanf("%d",&choice);
+    }
+    temp=head;
+    while(temp!=0){
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+
+    printf("enter the data u want to insert");
+    scanf("%d",nnode->data);
+    nnode->next=head;
+    head->prev=nnode;
+    head=nnode;
+
+    temp=head;
+    while(temp!=0){
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+}
+//at end
+int main(){
+    struct dnode*head;
+    struct dnode*nnode,*temp;
+    head=0;
+    int choice;
+    while(choice=1){
+    nnode=(struct dnode*)malloc(sizeof(struct dnode));
+    printf("enter the data");
+    scanf("%d",&nnode->data);
+    nnode->next=0;
+    nnode->prev=0;
+    if(head==0){
+        head=temp=nnode;
+    }
+    else{
+        temp->next=nnode;
+        nnode->prev=temp;
+        temp=nnode;
+    }
+    printf("do u want to continue yes or no");
+    scanf("%d",&choice);
+    }
+    temp=head;
+    while(temp!=0){
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+
+    struct dnode*tail;
+    tail->next=nnode;
+    nnode->prev=tail;
+    tail=nnode;
+
+    temp=head;
+    while(temp!=0){
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+
+}
+//at specific location
+int main(){
+    struct dnode*head;
+    struct dnode*nnode,*temp;
+    head=0;
+    int choice;
+    while(choice=1){
+    nnode=(struct dnode*)malloc(sizeof(struct dnode));
+    printf("enter the data");
+    scanf("%d",&nnode->data);
+    nnode->next=0;
+    nnode->prev=0;
+    if(head==0){
+        head=temp=nnode;
+    }
+    else{
+        temp->next=nnode;
+        nnode->prev=temp;
+        temp=nnode;
+    }
+    printf("do u want to continue yes or no");
+    scanf("%d",&choice);
+    }
+    temp=head;
+    while(temp!=0){
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+
+   printf("enter the data u want to insert");
+   scanf("%d",nnode->data);
+   int i=0,n;
+   printf("enter the position of insertion n:");
+   scanf("%d",&n);
+   while(i<n){
+    temp=temp->next;
+    i++;
+   }
+   temp->next=nnode->next;
+   nnode->next->prev=nnode;
+   temp->next=nnode;
+   nnode->prev=temp;
+}
+//deleting in dll
+//at beginning
+int main(){
+    struct dnode*head;
+    struct dnode*nnode,*temp;
+    head=0;
+    int choice;
+    while(choice=1){
+    nnode=(struct dnode*)malloc(sizeof(struct dnode));
+    printf("enter the data");
+    scanf("%d",&nnode->data);
+    nnode->next=0;
+    nnode->prev=0;
+    if(head==0){
+        head=temp=nnode;
+    }
+    else{
+        temp->next=nnode;
+        nnode->prev=temp;
+        temp=nnode;
+    }
+    printf("do u want to continue yes or no");
+    scanf("%d",&choice);
+    }
+    temp=head;
+    while(temp!=0){
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+    head=temp;
+    head->next=head;
+    free(temp);
+}
+//at end
+int main(){
+    struct dnode*head;
+    struct dnode*nnode,*temp;
+    head=0;
+    int choice;
+    while(choice=1){
+    nnode=(struct dnode*)malloc(sizeof(struct dnode));
+    printf("enter the data");
+    scanf("%d",&nnode->data);
+    nnode->next=0;
+    nnode->prev=0;
+    if(head==0){
+        head=temp=nnode;
+    }
+    else{
+        temp->next=nnode;
+        nnode->prev=temp;
+        temp=nnode;
+    }
+    printf("do u want to continue yes or no");
+    scanf("%d",&choice);
+    }
+    temp=head;
+    while(temp!=0){
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+    struct dnode*tail;
+    temp=head;
+    while(temp!=tail){
+        temp=temp->next;
+    }
+    temp->next=0;
+    free(temp);
+}
+
