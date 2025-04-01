@@ -1,0 +1,181 @@
+//implementation of stack using array
+#define N
+int stacK[N];
+int top=-1;
+void push(){
+    int data;
+    printf("enter the data");
+    scanf("%d",&data);
+    if(top==N-1){
+        printf("stack is full");
+    }
+    else{
+        int stack;
+        top=top+1;
+        stack[top]=data;
+    }
+}
+void pop(){
+    if(top==-1){
+        pritf("stack is empty");
+    }
+    else{
+        int data;
+        int stack;
+        data=stack[top]
+        top--;
+    }
+}
+void display(){
+    if(top==-1){
+
+        printf("no elements to display");
+    }
+    else{
+        int stack;
+        int i;
+        for(i=top;i>=0;i--){
+            printf("%d",stack[i]);
+        }
+    }
+}
+void peek(){
+    if(top==-1){
+        printf("no peek");
+    }
+    else{
+        int stack;
+        printf("%d",stack[top]);
+    }
+
+}
+//implementation of stack using linked list
+struct node{
+    int data;
+    struct node*next;
+};
+struct node *top=0;
+void push(int x){
+    struct node*nnode;
+    nnode=(struct node*)malloc(sizeof(struct node));
+    nnode->data=x;
+    nnode->next=top;
+    top=nnode;
+}
+void pop(){
+    struct node*temp;
+    temp=top;
+    if(top==0){
+        printf("no elements in stack");
+    }
+    else{
+        printf("%d",top->data);
+        top=top->next;
+        free(temp);
+    }
+}
+void display(){
+    struct node*temp;
+    temp=top;
+    if(top==0){
+        printf("stack is empty");
+    }
+    else{
+        while(temp!=0){
+            printf("%d",temp->data);
+            temp=temp->next;
+        }
+    }
+}
+void peek(){
+    if (top==0){
+        printf("stack is empty");
+    }
+    else{
+        printf("top element is %d",top->data);
+    }
+}
+
+//converting infix expression into postfix expression
+void infix_to_postfix(){
+    int i,j=0;
+    int n;
+    int infix[n];
+    int postfix[n];
+    char symbol,next;
+    for(i=0;i<n;i++){
+        symbol=infix[i];
+        switch(symbol){
+            case'(':
+             push(symbol);
+             break;
+            case ')':
+             while((next='(')!='(')
+                 postfix[j++]=next;
+                 break;
+            default:
+               postfix[j++]=symbol;
+        }
+
+    }
+
+}
+//evaluating a postfix expression 
+post_eval(){
+    int i,a,b;
+    int n;
+    int postfix[n];
+    for(i=0;i<n;i++){
+        if(postfix[i]>='0'&&postfix[i]<='9'){
+        push(postfix[i]-'0');
+        }
+        else{
+            a=pop();
+            b=pop();
+            switch(postfix[i]){
+                case '+':
+                 push(b+a);
+                 break;
+                case'-':
+                 push(b-a);
+                 break;
+                case'*':
+                 push(b*a);
+                 break;
+                case'/':
+                 push(b/a);
+                 break;
+                case '^':
+                 push(pow(b,a));
+                 break;
+            }
+        }
+    }
+}
+//checking a string is palindrom or not
+char s[50];
+top=-1;
+int main(){
+    int i,len;
+    char str[50]={'\0'};
+    printf("enter a string :");
+    scanf("%s",str);
+    len=strlen(str);
+    i=0;
+    while(i<len){
+        push(str[i]);
+        i++;
+    }
+    i=0;
+    while(i<len){
+        if(str[i]!=pop())
+          break;
+        i++;
+    }
+    if(i==len){
+        printf("string is palindrom");
+    }
+    else{
+        printf("string is not palindrom");
+    }
+}
