@@ -1,0 +1,89 @@
+#include<stdio.h>
+#include<stdlib.h>
+//1st question (removing duplicates in sorted ll)
+struct node{
+    int data;
+    struct node*next;
+};
+//forming a linked list with duplicate nodes
+int main(){
+struct node*head=0;
+struct node*nnode,*temp;
+int choice;
+while(choice=1){
+nnode=(struct node*)malloc(sizeof(struct node));
+printf("enter the data");
+scanf("%d",&nnode->data);
+nnode->next=0;
+if(head==0){
+    head=temp=nnode;
+}
+else{
+    temp->next=nnode;
+    temp=nnode;
+}
+printf("do u want to continue yes or no");
+scanf("%d",&choice);
+}
+temp=head;
+while(temp!=0){
+    printf("%d",temp->data);
+    temp=temp->next;
+}
+//linked list with no duplicates
+struct node*nextnode;
+struct node*temp;
+temp=head;
+while(temp->next!=0){
+    nextnode=temp->next;
+    while(temp->data==nextnode->data){
+        nextnode=nextnode->next;
+    }
+    temp->next=nextnode;
+}
+temp=head;
+while(temp!=0){
+    printf("%d",temp->data);
+    temp=temp->next;
+}
+
+}
+//2nd question(function to rotate a ll)
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node*next;
+};
+node*findNthnode(node*temp,int k){
+    int cnt=1;
+    while(temp!=0){
+        if(cnt==k){
+            return temp;
+        }
+        cnt++;
+        temp=temp->next;
+    }
+    return temp;
+}
+node*rotate(node *head,int k){
+    struct node*tail;
+    struct node*newlastnode;
+    int length=1;
+    if(head==0||k==0){
+        return head;
+    }
+    else{
+        tail=head;
+        while(tail->next!=0){
+            length++;
+            tail=tail->next;
+        }
+    }
+    if(k%length==0){return head;}
+    k=k%length;
+    tail->next=head;
+    newlastnode=findNthnode(head,length-k);
+    head=newlastnode->next;
+    newlastnode->next==0;
+}
