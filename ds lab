@@ -1,0 +1,109 @@
+#include<stdio.h>
+#include<stdlib.h>
+//queue using stack
+int n;
+int a[];
+int top1=-1,top2=-1;
+int cnt=0;
+int push1(int x){
+    if(top1==n-1){
+        printf("full");
+    }
+    else{
+        top1++;
+        a[top1]=x;
+        cnt++;
+    }
+}
+int push2(int x){
+    if(top2==n-1){
+        printf("full");
+    }
+    else{
+        top2++;
+        a[top2]=x;
+    }
+}
+int pop1(){
+    if(top1==-1){
+        printf("empty");
+    }
+    else{
+        top1--;
+    }
+}
+int pop2(){
+    if(top2==-1){
+        printf("empty");
+    }
+    else{
+        top2--;
+    }
+}
+int enque(int x){
+    push1(x);
+}
+void deque(){
+    int i,data;
+    for(i=0;i<cnt;i++){
+        data=pop1();
+        push2(data);
+    }
+    int b=pop2();
+    printf("deque element is %d",b);
+    top2--;
+    cnt--;
+    for(i=0;i<cnt;i++){
+        data=pop2();
+        push1(data);
+    }
+}
+//queue using linked list
+struct node{
+    int data;
+    struct node*next;
+};
+struct node*front=0,*rear=0;
+
+int enque(){
+    struct node*nnode;
+    nnode=(struct node*)malloc(sizeof(struct node));
+    printf("enter data");
+    scanf("%d",nnode->data);
+    nnode->next=0;
+    if(front==0&&rear==0){
+        front=rear=nnode;
+    }
+    else{
+        rear->next=nnode;
+        rear=nnode;
+    }
+}
+void deque(){
+    struct node*temp;
+    if(front==0&&rear==0){
+        printf("empty");
+    }
+    else if(front==rear){
+        temp=front;
+        free(temp);
+        front=rear=0;
+    }
+    else{
+        temp=front;
+        front=front->next;
+        free(temp);
+    }
+
+}
+void display(){
+    struct node*temp;
+    temp=front;
+    while(temp!=0){
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+}
+//circular queue using array
+
+
